@@ -1,0 +1,12 @@
+.login-view {
+    background-color: #F0F2F5;
+}
+
+.form-comp {
+    height: 33.3333%;
+}
+
+.form-comp input,
+button,a{
+    height: 50px;
+}

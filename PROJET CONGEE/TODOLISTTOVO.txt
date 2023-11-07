@@ -1,0 +1,68 @@
+_Login entreprise
+_acceuil
+	-Session : nomEntreprise ,LogoEntreprise
+	truc a afficher : 
+		Faire une demande d'approvisionnement
+			lien vers creerdemandeappro.php : 
+				Interface de saisie de ; Departement(liste deroulante),designation,Justificatif,Quantité
+		Liste des demandes d'approvvisionnement
+			liste des demandes encore non traitées
+		Grouper des demandes d'approvisionnement
+			grouper 2 ou plusieurs demandes d'approvisionnement
+		Liste des demandes groupées
+			Voir liste des demandes groupees
+		Creer une demande de proformat 
+			Lien vers creerdemandeproformat.php:
+				Interface de saisie de ; Fournisseur(Liste deroulante),typemateriel(listederoulante), quantité, information, delai,lieu, prix demandé
+		Saisir un proformat 
+			Lien vers saisieproformat.php:
+				Interface de saisie de ; Fournisseur(liste deroulante),typemateriel(listederoulante), quantité, information, , delai, prix unitaire, prix total
+		Liste des proformat non noté
+			Liste de tout les proformat ne figurant pas encore dans une table de note
+		Voir les notes de proformat de groupees
+			Liste des demandes ayant une demande de proformat
+			Liste des groupes ayant une demande de proformat
+				bouton Voir les proformat recu pour cette demande : goto listenoteproformat.php
+					listenoteproformat.php ; Liste des proformat pour cette demande/groupees
+						Affichage : 	En haut: Liste des proformat non-notés 
+											bouton NOTER CE PROFORMAT
+												Noter sur ; Moins disant(coeff3),Quantité,qualité
+												Lien retour a la page
+										En bas : Liste des notes des proformat deja notés
+											Nom fournisseur , Petite fleche affichant sa note et offre
+												 
+												 BTW ; 3 meilleures offres par moyenne et par moins disant
+												 Bouton Emettre un bon de commande : goto nouveauBon de commande.php?numproformat=
+	Bon de commande : Interface de saisie de :  Nomentreprise A		(En tete : Logo/Nom Entreprise)			(A= Dynamique , M = Manuel)
+												date emission A mais modifiable
+												reference proformat A
+												fournisseur A
+												date livraison
+												lieu livraison
+							Caracteristique		Rubrique (TypeProduit)
+												Designation exacte
+												Quantité
+												Prix Unitaire
+												
+												Delai de payement (en jour)
+												
+												Montant Hors Taxe
+												Taxes
+												Montant Toute taxes comprises
+												 
+													Signature Client			Signature Fournisseur
+												
+NEXT : 	BON DE LIVRAISON
+		BON DE RECEPTION
+	
+		voir les Bon de commande non recues
+	
+
+	
+												
+											    
+					
+				
+	
+
+

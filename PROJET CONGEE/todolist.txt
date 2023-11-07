@@ -1,0 +1,5 @@
+IRSA OK
+TOTAL IRSA OK
+HEURE SUPP  
+TOTAL DEDUCTION
+SALAIRE NET = Salaire brut - irsa - deduction cnaps - deduction sanitaire
