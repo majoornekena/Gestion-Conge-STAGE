@@ -30223,7 +30223,7 @@ AS $function$select pg_catalog.xpath_exists($1, $2, '{}'::pg_catalog.text[])$fun
 ]]></string>
 		</script>
 		<script name="employes_003" id="Editor-194e" language="SQL" >
-			<string><![CDATA[delete from employes where nom = 'nekena';]]></string>
+			<string><![CDATA[select * from employes ;]]></string>
 		</script>
 	</layout>
 </project>

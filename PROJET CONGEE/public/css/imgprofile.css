@@ -1,0 +1,6 @@
+.sb-sidenav-footer img {
+    border-radius: 50%; /* Pour rendre l'image ronde */
+    width: 40px; /* Largeur de l'image */
+    height: 40px; /* Hauteur de l'image */
+    object-fit: cover; /* Assure que l'image est entièrement couverte sans déformer sa forme */
+}

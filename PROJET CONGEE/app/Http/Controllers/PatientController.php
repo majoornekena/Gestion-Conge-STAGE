@@ -7,12 +7,22 @@ use App\patient;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use DateTime;
+use App\Http\Controllers\ComponentController;
 
 class PatientController extends Controller
 {
     public function AjoutPatient()
     {
-       return view('crud/patient/AjoutPatient');
+        $componentController = new ComponentController();
+
+        // Appel de la méthode imgprofileadmin pour obtenir la vue Sidebar
+        $sidebarView = $componentController->profile();
+    
+        // Récupérer les données de l'utilisateur depuis la vue renvoyée par imgprofileadmin()
+        $userData = $sidebarView->getData();
+    
+        // Retourner la vue principale avec Sidebar et les données de l'utilisateur
+        return view('crud/patient/AjoutPatient', ['sidebar' => $sidebarView, 'userData' => $userData]);
     }
     public function UpdatePatient()
     {

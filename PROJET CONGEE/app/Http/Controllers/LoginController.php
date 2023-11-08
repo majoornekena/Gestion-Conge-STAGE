@@ -77,7 +77,7 @@ public function clearSessionToken(Request $request)
             Employee::where('idemploye', $employeeId)->update(['api_token' => $employeeToken]);
             session(['api_token' => $employeeToken]);
 
-            return redirect('/employee/AjoutActe');
+            return redirect('/user/AjoutActe');
         } else {
             // L'authentification a échoué
             return redirect('/login')->with('erreur', 'Erreur, Email ou Mot de passe incorrecte. Veuillez réessayer.');
@@ -88,7 +88,7 @@ public function clearSessionToken(Request $request)
     public function logout(Request $request)
     {
         // Détruit la session
-        $request->session()->forget('employeeId');
+        $request->session()->flush();
 
         // Redirige vers la page de connexion
         return redirect("/login");

@@ -30,6 +30,9 @@ Route::get('/logout',\App\Http\Controllers\LoginController::class . '@logout');
 
 Route::get('/error404',\App\Http\Controllers\ErrorController::class . '@error404');
 
+//COMPONENTS ROUTES
+Route::get('/profile',\App\Http\Controllers\ComponentController::class . '@profile');
+
 
 // Routes pour les administrateurs
 Route::middleware(['App\Http\Middleware\AuthTokenAdminMiddleware'])->group(function () {
@@ -44,7 +47,7 @@ Route::middleware(['App\Http\Middleware\AuthTokenAdminMiddleware'])->group(funct
 
 Route::middleware(['App\Http\Middleware\AuthTokenEmployeeMiddleware'])->group(function () {
     // Les routes nécessitant une authentification d'administrateur vont ici
-    Route::get('employee/AjoutActe',\App\Http\Controllers\ActeController::class . '@AjoutActe');
+    Route::get('user/AjoutActe',\App\Http\Controllers\ActeController::class . '@AjoutActe');
     // ... Autres routes administratives ...
 });
 

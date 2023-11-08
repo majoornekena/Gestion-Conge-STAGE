@@ -7,13 +7,26 @@ use App\acte;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use DateTime;
+use App\Http\Controllers\ComponentController;
 
 class ActeController extends Controller
 {
     public function AjoutActe()
-    {
-       return view('crud/acte/AjoutActe');
-    }
+{
+    $componentController = new ComponentController();
+
+    // Appel de la méthode imgprofileadmin pour obtenir la vue Sidebar
+    $sidebarView = $componentController->profile();
+
+    // Récupérer les données de l'utilisateur depuis la vue renvoyée par imgprofileadmin()
+    $userData = $sidebarView->getData();
+
+    // Retourner la vue principale avec Sidebar et les données de l'utilisateur
+    return view('crud/acte/AjoutActe', ['sidebar' => $sidebarView, 'userData' => $userData]);
+}
+
+    
+
     public function UpdateActe()
     {
     $acte =  collect(\DB::select('select * from actes where idacte=? ', [request('id')]))->first();
@@ -23,22 +36,14 @@ class ActeController extends Controller
     }
     public function ListeActe()
      {
-        $bloc = 999;
-        $page = request()->query('page',1); // Valeur par défaut : 1
-        $perPage = request()->query('perPage',$bloc); // Valeur par défaut : 10
-        $currentPage = 1;
-
+       
         $listeActe = acte::where('etatsup',0)->orderBy("idacte", "asc")->paginate($perPage, ['*'], 'page', $page);
 
-        $lastPage = $listeActe->lastPage(); 
-
-        $listeNumeroPage = range(1, $lastPage);
+        
        
         return view('crud/acte/ListeActe',[
             'listeActe' => $listeActe,
-            'currentPage' => $currentPage,
-            'lastPage' => $lastPage,
-            'listeNumeroPage' => $listeNumeroPage,
+            
         ]);
      }
      public function Delete_ACTE()

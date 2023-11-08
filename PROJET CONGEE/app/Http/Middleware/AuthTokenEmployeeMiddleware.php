@@ -11,7 +11,7 @@ class AuthTokenEmployeeMiddleware
     public function handle($request, Closure $next)
     {
         // Vérifie si la route nécessite une authentification d'employé
-        if ($request->is('employee/*')) {
+        if ($request->is('user/*')) {
             $apiToken = $request->session()->get('api_token');
     
         // Affiche la valeur de l'api_token
