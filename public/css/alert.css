@@ -1,0 +1,15 @@
+.confirmation-dialog {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 300px;
+}
+
+.confirmation-dialog img {
+    width: 100px; /* Ajustez la largeur de l'image selon vos besoins */
+    height: 100px; /* Ajustez la hauteur de l'image selon vos besoins */
+    border-radius: 50%; /* Rend l'image un vrai cercle */
+    object-fit: cover; /* Évite que l'image ne soit déformée dans le cercle */
+    margin-bottom: 10px; /* Ajoute un espace en bas de l'image */
+}
