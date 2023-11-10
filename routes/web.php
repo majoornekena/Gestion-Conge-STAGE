@@ -39,6 +39,8 @@ Route::middleware(['App\Http\Middleware\AuthTokenAdminMiddleware'])->group(funct
     // Les routes nécessitant une authentification d'administrateur vont ici
     Route::get('/admin/AjoutPatient',\App\Http\Controllers\PatientController::class . '@AjoutPatient');
     Route::get('/admin/ListeEmploye',\App\Http\Controllers\EmployeController::class . '@ListeEmploye');
+    Route::get('/admin/VueEmploye/{idemploye}',\App\Http\Controllers\EmployeController::class . '@VueEmploye');
+
     Route::get('/admin/DeleteEmploye/{idemploye}',\App\Http\Controllers\EmployeController::class . '@DeleteEmploye');
 
     // ... Autres routes administratives ...

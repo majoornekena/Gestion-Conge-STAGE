@@ -37,6 +37,11 @@
                                             <label for="inputPrenom">Prénom</label>
                                         </div>
                                         <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputDateNaissance" name="datenaissance"
+                                                type="date" required />
+                                            <label for="inputDateNaissance">Date de Naissance</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
                                             <select class="form-select" id="inputSexe" name="sexe" required>
                                                 <option value="Homme">Homme</option>
                                                 <option value="Femme">Femme</option>
@@ -44,10 +49,21 @@
                                             <label for="inputSexe">Sexe</label>
                                         </div>
                                         <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputResidence" name="residence"
+                                                placeholder="Résidence" required />
+                                            <label for="inputResidence">Résidence</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPhone" name="phone"
+                                                placeholder="Numéro de téléphone" required />
+                                            <label for="inputPhone">Numéro de téléphone</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
                                             <input class="form-control" id="inputImage" name="imgprofile" type="file"
                                                 accept="image/*" />
                                             <label for="inputImage">Image de profil</label>
                                         </div>
+                                        <!-- Les champs existants restent inchangés -->
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputEmail" name="mail"
                                                 placeholder="name@example.com" required />
@@ -80,7 +96,6 @@
                 </div>
             </main>
         </div>
-        <!-- Mettez ici votre pied de page -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>

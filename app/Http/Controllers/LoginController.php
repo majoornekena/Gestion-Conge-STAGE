@@ -159,11 +159,17 @@ public function login(Request $request)
         $employee = new Employee([
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
-            'imgprofile' => $base64Image,            
+            'datenaissance' => $request->input('datenaissance'), // Assurez-vous que votre formulaire ou requête inclut la date de naissance
+            'imgprofile' => $base64Image,
             'sexe' => $request->input('sexe'),
+            'residence' => $request->input('residence'), // Ajoutez le champ residence
+            'phone' => $request->input('phone'), // Ajoutez le champ phone
             'mail' => $request->input('mail'),
             'mdp' => $request->input('mdp'),
+            'api_token' => '0', // Valeur par défaut pour apitoken
+            'etatsup' => 0, // Valeur par défaut pour etatsup
         ]);
+        
 
         // Enregistrez le nouvel employé dans la base de données
         $employee->save();

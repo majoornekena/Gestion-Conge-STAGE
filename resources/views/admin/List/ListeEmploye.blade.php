@@ -14,12 +14,12 @@ use App\FormatDate;
     <title>Liste collaborateur</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
-
     <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" media="screen" />
     <link href="{{ asset('/css/alert.css') }}" rel="stylesheet" media="screen" />
     <link href="{{ asset('/css/imgprofile.css') }}" rel="stylesheet" media="screen" />
-
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,7 +40,6 @@ use App\FormatDate;
                     </li>
                 </ol>
                 <div class="row">
-
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
@@ -73,51 +72,73 @@ use App\FormatDate;
                                             <img src="data:image/png;base64,{{ $employe->imgprofile }}"
                                                 alt="Image Profile" width="25px" height="25px"
                                                 style="border-radius: 50%; object-fit: cover;">
-
                                             <strong>{{ $employe->nom }} {{ $employe->prenom }}</strong>
                                         </div>
                                     </td>
                                     <td>{{ $employe->branche }}</td>
                                     <td>{{ FormatDate::format($employe->dateaffectation) }}</td>
-
-                                    <!-- <td>{{ $employe->dateaffectation }}</td> -->
                                     <td>
-                                        <!-- Liens pour voir et supprimer les informations -->
-                                        <a href="{{ url('/UpdateActe') }}/{{ $employe->idemploye }}">
-                                            <i class="fas fa-eye"></i> <!-- Icône pour voir -->
+                                        <a href="{{ url('/admin/VueEmploye') }}/{{ $employe->idemploye }}">
+                                            <i class="fas fa-eye"></i>
                                         </a>
                                         <a href="#" style="margin: 0 10px;"
                                             onclick="showConfirmation('{{ $employe->nom }} {{ $employe->prenom }}', '{{ $employe->branche }}', '{{ $employe->imgprofile }}', '{{ url('/admin/DeleteEmploye') }}/{{ $employe->idemploye }}'); return false;">
-                                            <i class="fas fa-trash-alt"></i> <!-- Icône pour supprimer -->
+                                            <i class="fas fa-trash-alt"></i>
                                         </a>
-
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="export-buttons">
+                            <button id="export-excel" data-columns-to-export="[0, 1, 2]"
+                                class="btn btn-outline-secondary">Export Excel</button>
+                            <button id="export-pdf" data-columns-to-export="[0, 1, 2]"
+                                class="btn btn-outline-secondary">Export PDF</button>
+
+
+                        </div>
                     </div>
                 </div>
-
             </div>
         </main>
         @include('components.admin_components.Footer')
     </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js">
+    </script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
+    </script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js">
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/datatables-simple-demo.js') }}"></script>
     <script src="{{ asset('js/confirmationDeleteEmploye.js') }}"></script>
+
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
+    </script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+
+    <!-- ... votre code HTML ... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable"></script>
+
 
 
 </body>

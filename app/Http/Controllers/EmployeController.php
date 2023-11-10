@@ -29,6 +29,29 @@ class EmployeController extends Controller
             'sidebar' => $sidebarView, 'userData' => $userData
         ]);
     }
+    public function VueEmploye($id)
+    {
+        // Initialize Component
+        $componentController = new ComponentController();
+        $sidebarView = $componentController->profile();
+        $userData = $sidebarView->getData();
+    
+        // Récupération des informations de base de l'employé
+        $employee = Employee::find($id);
+    
+        // Récupération des informations supplémentaires de la vue v_listeemploye
+        $additionalInfo = DB::table('v_listeemploye')
+            ->where('idemploye', $id)
+            ->orderBy('dateaffectation', 'desc')
+            ->first();
+    
+        return view('admin/List/VueEmploye', [
+            'employee' => $employee,
+            'additionalInfo' => $additionalInfo,
+            // Return the component
+            'sidebar' => $sidebarView, 'userData' => $userData
+        ]);
+    }
 
     public function DeleteEmploye($idemploye)
     {

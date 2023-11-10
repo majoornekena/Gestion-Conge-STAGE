@@ -4,3 +4,8 @@
     height: 40px; /* Hauteur de l'image */
     object-fit: cover; /* Assure que l'image est entièrement couverte sans déformer sa forme */
 }
+
+.rounded-cover {
+    border-radius: 50%;
+    object-fit: cover;
+}
